@@ -14,10 +14,13 @@ function EventsPage() {
 export default EventsPage;
 
 export const EventsLoader = async () => {
-  const response = await fetch("http://localhost:8080/events1");
+  const response = await fetch("http://localhost:8080/events");
 
   if (!response.ok) {
-    throw { message: "Could not fetch events." };
+    throw new Response(
+      JSON.stringify({ message: "Could not fetch events data." }),
+      { status: 500 }
+    );
   } else {
     return response;
   }
