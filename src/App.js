@@ -27,11 +27,13 @@ import EventDetailPage, {
   EventDetailsLoader,
   actionEventDelete,
 } from "./pages/EventDetail";
-import NewEventPage, { actionEvent } from "./pages/NewEvent";
+import NewEventPage from "./pages/NewEvent";
 import EditEventPage from "./pages/EditEvent";
 import RootLayout from "./pages/Root";
 import EventsRootLayout from "./pages/EventsRoot";
 import ErrorPage from "./pages/Error";
+
+import { actionEvent as manipulateActionEvent } from "./components/EventForm";
 
 const router = createBrowserRouter([
   {
@@ -65,6 +67,7 @@ const router = createBrowserRouter([
               {
                 path: "edit",
                 element: <EditEventPage />,
+                action: manipulateActionEvent,
               },
             ],
           },
@@ -72,7 +75,7 @@ const router = createBrowserRouter([
           {
             path: "new",
             element: <NewEventPage />,
-            action: actionEvent,
+            action: manipulateActionEvent,
           },
         ],
       },
