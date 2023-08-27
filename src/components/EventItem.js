@@ -2,6 +2,8 @@ import { Link, useSubmit } from "react-router-dom";
 import classes from "./EventItem.module.css";
 
 function EventItem({ event }) {
+  console.log("event item page");
+  console.log(event);
   const submit = useSubmit();
   function startDeleteHandler() {
     const proceed = window.confirm("Are you sure want to delete?");
@@ -12,7 +14,7 @@ function EventItem({ event }) {
 
   return (
     <article className={classes.event}>
-      <img src={event.image} alt={event.title} />
+      <img src={`${event.image}`} alt={event.title} />
       <h1>{event.title}</h1>
       <time>{event.date}</time>
       <p>{event.description}</p>
