@@ -25,6 +25,10 @@ export const actionEvent = async ({ request, params }) => {
     body: JSON.stringify(event_data),
   });
 
+  if (response.status === 422) {
+    return response;
+  }
+
   if (!response.ok) {
     throw json({ message: "Data insert failed" }, { status: 500 });
   }
